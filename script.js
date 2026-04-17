@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.openInvitation = function() {
         const sealScreen  = document.getElementById('seal-screen');
         const invitation  = document.getElementById('invitation');
-        const musicFab    = document.getElementById('musicFab');
 
         sealScreen.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
         sealScreen.style.opacity    = '0';
@@ -24,29 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             initReveal();
             initSlideshow();
 
-            const audio = document.getElementById('bgMusic');
-            audio.volume = 0.35;
-            audio.play().then(() => {
-                document.getElementById('musicBars').classList.remove('paused');
-                musicPlaying = true;
-            }).catch(() => {});
-
         }, 850);
-    };
-
-    // ── MUSIC TOGGLE ─────────────────────────────
-    let musicPlaying = false;
-    window.toggleMusic = function() {
-        const audio = document.getElementById('bgMusic');
-        const bars  = document.getElementById('musicBars');
-        if (musicPlaying) {
-            audio.pause();
-            bars.classList.add('paused');
-        } else {
-            audio.play().catch(() => {});
-            bars.classList.remove('paused');
-        }
-        musicPlaying = !musicPlaying;
     };
 
     // ── COUNTDOWN ────────────────────────────────
