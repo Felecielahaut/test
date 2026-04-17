@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             sealScreen.style.display = 'none';
             invitation.style.display  = 'block';
-            musicFab.style.display    = 'flex';
 
             requestAnimationFrame(() => {
                 invitation.style.transition = 'opacity 0.7s ease';
