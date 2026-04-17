@@ -102,42 +102,6 @@
         </div>
     </section>
 
-    <!-- Our Story Section -->
-    <section id="story" class="section story-bg">
-        <div class="container">
-            <div class="section-header reveal fade-up">
-                <h2 class="section-title">The Story</h2>
-                <div class="divider"></div>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item reveal fade-left">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>First Meeting</h3>
-                        <p class="date">Spring 2021</p>
-                        <p>Under the canopy of the old oak tree at the botanical garden, a chance encounter blossomed into a beautiful conversation.</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal fade-right">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>The Engagement</h3>
-                        <p class="date">Summer 2021</p>
-                        <p>Coffee turned into dinner, dinner turned into a moonlit walk. We knew from that day that this was something extraordinary.</p>
-                    </div>
-                </div>
-                <div class="timeline-item reveal fade-left">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Katb El-Ketab</h3>
-                        <p class="date">Winter 2024</p>
-                        <p>Surrounded by fresh snow in the mountains where we had our first getaway, a simple question changed our lives forever.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Event Details Section -->
     <section id="details" class="section details-bg">
         <div class="container">
@@ -174,70 +138,6 @@
         </div>
     </section>
 
-    <!-- Gallery Section — Slideshow -->
-    <section id="gallery" class="section gallery-bg">
-        <div class="container">
-            <div class="section-header reveal fade-up">
-                <h2 class="section-title">Moments</h2>
-                <div class="divider"></div>
-            </div>
-
-            <div class="slideshow reveal fade-up">
-                <div class="slideshow-track" id="slideshowTrack">
-                    <div class="slide active">
-                        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1200&auto=format&fit=crop" alt="Rings">
-                        <div class="slide-caption">
-                            <span class="slide-title">The Rings</span>
-                            <span class="slide-sub">A symbol of forever</span>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="https://i.pinimg.com/736x/4c/82/c7/4c82c7bbeb634f483e75058379a2b3fd.jpg" alt="Couple walking">
-                        <div class="slide-caption">
-                            <span class="slide-title">Together</span>
-                            <span class="slide-sub">Every step, side by side</span>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="https://i.pinimg.com/736x/20/71/c8/2071c8eb762b00f4c75b6813b8621825.jpg" alt="Dress details">
-                        <div class="slide-caption">
-                            <span class="slide-title">The Details</span>
-                            <span class="slide-sub">Crafted with love</span>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="https://i.pinimg.com/736x/24/c4/46/24c4466508db107c6deb6fb0b2742009.jpg" alt="Table setup">
-                        <div class="slide-caption">
-                            <span class="slide-title">The Table</span>
-                            <span class="slide-sub">Set for celebration</span>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200&auto=format&fit=crop" alt="Toast">
-                        <div class="slide-caption">
-                            <span class="slide-title">A Toast</span>
-                            <span class="slide-sub">To love and joy</span>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="https://i.pinimg.com/736x/f9/19/23/f919233b45b2f1a175a7e8c3a58c402c.jpg" alt="Green aesthetics">
-                        <div class="slide-caption">
-                            <span class="slide-title">In Bloom</span>
-                            <span class="slide-sub">Nature's finest touch</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Controls -->
-                <div class="slideshow-controls">
-                    <button class="slide-btn" onclick="changeSlide(-1)" aria-label="Previous">&#8592;</button>
-                    <div class="slide-dots" id="slideDots"></div>
-                    <button class="slide-btn" onclick="changeSlide(1)" aria-label="Next">&#8594;</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- FAQ -->
     <section class="section faq-bg">
         <div class="container">
@@ -256,7 +156,7 @@
                 </div>
                 <div class="faq-item reveal fade-up">
                     <button class="faq-q" onclick="toggleFaq(this)"><span>What is the dress code?</span><span class="faq-arrow">+</span></button>
-                    <div class="faq-a"><div class="faq-a-inner">The dress code is Black Tie. Ladies are invited to wear formal gowns, and gentlemen are requested to wear a tuxedo or dark formal suit. We suggest avoiding white or ivory.</div></div>
+                    <div class="faq-a"><div lass="faq-a-inner">The dress code is Black Tie. Ladies are invited to wear formal gowns, and gentlemen are requested to wear a tuxedo or dark formal suit. We suggest avoiding white or ivory.</div></div>
                 </div>
                 <div class="faq-item reveal fade-up">
                     <button class="faq-q" onclick="toggleFaq(this)"><span>Can I take photos during the ceremony?</span><span class="faq-arrow">+</span></button>
@@ -332,16 +232,6 @@
     </footer>
 
 </div><!-- /invitation -->
-
-<!-- Music FAB -->
-<div class="music-fab" id="musicFab" onclick="toggleMusic()" style="display:none" title="Toggle music">
-    <div class="music-bars" id="musicBars">
-        <span></span><span></span><span></span><span></span>
-    </div>
-</div>
-<audio id="bgMusic" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3" type="audio/mpeg"/>
-</audio>
 
 <script src="script.js"></script>
 </body>
