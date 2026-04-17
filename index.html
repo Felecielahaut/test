@@ -146,16 +146,12 @@
                     <div class="faq-a"><div class="faq-a-inner">We love your little ones! Children are warmly welcome. Please note their attendance in your RSVP so we can arrange appropriate seating and a kids' menu.</div></div>
                 </div>
                 <div class="faq-item reveal fade-up">
-                    <button class="faq-q" onclick="toggleFaq(this)"><span>What is the dress code?</span><span class="faq-arrow">+</span></button>
-                    <div class="faq-a"><div class="faq-a-inner">The dress code is Black Tie. Ladies are invited to wear formal gowns, and gentlemen are requested to wear a tuxedo or dark formal suit. We suggest avoiding white or ivory.</div></div>
+                    <button class="faq-q" onclick="toggleFaq(this)"><span>Is there step-free access to the main entrance, the restroom, and the event area?</span><span class="faq-arrow">+</span></button>
+                    <div class="faq-a"><div class="faq-a-inner">Yes, we are fully step-free. There is a ramped/level entrance at the main front door that leads directly to the venue space.</div></div>
                 </div>
                 <div class="faq-item reveal fade-up">
                     <button class="faq-q" onclick="toggleFaq(this)"><span>Can I take photos during the ceremony?</span><span class="faq-arrow">+</span></button>
                     <div class="faq-a"><div class="faq-a-inner">We kindly ask for an unplugged ceremony — please keep phones away during the vows. Our photographers will capture every moment. Feel free to snap away during the reception!</div></div>
-                </div>
-                <div class="faq-item reveal fade-up">
-                    <button class="faq-q" onclick="toggleFaq(this)"><span>Will there be dietary options?</span><span class="faq-arrow">+</span></button>
-                    <div class="faq-a"><div class="faq-a-inner">Absolutely. We will have vegetarian, vegan, and gluten-free options. Please note your requirements in the RSVP form and we will take care of everything.</div></div>
                 </div>
             </div>
         </div>
@@ -183,12 +179,20 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="guests">Number of Guests</label>
+                        <label for="guests">Number of Adult Guests</label>
                         <select id="guests" name="guests" class="form-select">
                             <option value="1">Just me (1)</option>
                             <option value="2">2 Guests</option>
                             <option value="3">3 Guests</option>
                             <option value="4">4 Guests</option>
+                        </select>
+                    </div
+                    <div class="form-group">
+                        <label for="guests">Number of Child Guests</label>
+                        <select id="guests" name="guests" class="form-select">
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -199,7 +203,7 @@
                 </form>
                 <div class="rsvp-success" id="rsvpSuccess" style="display:none">
                     <p>Thank you — your RSVP has been received!</p>
-                    <span>We cannot wait to celebrate with you 💐</span>
+                    <span>We cannot wait to celebrate with you! </span>
                 </div>
             </div>
         </div>
