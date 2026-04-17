@@ -20,8 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             startCountdown();
             initReveal();
-            initSlideshow();
-
+            
         }, 850);
     };
 
