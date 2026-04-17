@@ -35,19 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // ── MUSIC TOGGLE ─────────────────────────────
-    let musicPlaying = false;
-    window.toggleMusic = function() {
-        const audio = document.getElementById('bgMusic');
-        const bars  = document.getElementById('musicBars');
-        if (musicPlaying) {
-            audio.pause();
-            bars.classList.add('paused');
-        } else {
-            audio.play().catch(() => {});
-            bars.classList.remove('paused');
-        }
-        musicPlaying = !musicPlaying;
-    };
+
 
     // ── COUNTDOWN ────────────────────────────────
     function startCountdown() {
