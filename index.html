@@ -1,5 +1,6 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -8,223 +9,270 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Outfit:wght@200;300;400;500&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
-<!-- WAX SEAL SCREEN -->
-<div id="seal-screen">
-    <p class="seal-pre">You have received a wedding invitation</p>
-    <div class="seal-wrap">
-        <div class="envelope-wrapper" id="sealBtn" onclick="openInvitation()" title="Knock knock?">
-            <div class="envelope">
-                <div class="env-back"></div>
-                <div class="env-bottom"></div>
-                <div class="env-left"></div>
-                <div class="env-right"></div>
-                <div class="env-top"></div>
-                <div class="wax-seal">
-                    <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="110" cy="110" r="100" fill="#1B2E22"/>
-                <ellipse cx="68" cy="205" rx="12" ry="9" fill="#1B2E22"/>
-                <ellipse cx="152" cy="207" rx="10" ry="8" fill="#1B2E22"/>
-                <ellipse cx="110" cy="210" rx="8" ry="6" fill="#1B2E22"/>
-                <ellipse cx="30" cy="148" rx="8" ry="12" fill="#1B2E22"/>
-                <ellipse cx="190" cy="148" rx="8" ry="11" fill="#1B2E22"/>
-                <ellipse cx="80" cy="65" rx="30" ry="20" fill="#2D4A38" opacity="0.5"/>
-                <circle cx="110" cy="110" r="86" fill="none" stroke="#C5A059" stroke-width="1" stroke-dasharray="5 4" opacity="0.7"/>
-                <circle cx="110" cy="110" r="70" fill="none" stroke="#C5A059" stroke-width="0.8" opacity="0.5"/>
-                <path d="M110,42 C105,55 95,62 110,70 C125,62 115,55 110,42Z" fill="#C5A059" opacity="0.8"/>
-                <path d="M110,178 C105,165 95,158 110,150 C125,158 115,165 110,178Z" fill="#C5A059" opacity="0.8"/>
-                <path d="M42,110 C55,105 62,95 70,110 C62,125 55,115 42,110Z" fill="#C5A059" opacity="0.8"/>
-                <path d="M178,110 C165,105 158,95 150,110 C158,125 165,115 178,110Z" fill="#C5A059" opacity="0.8"/>
-                <rect x="66" y="60" width="7" height="7" fill="#C5A059" opacity="0.6" transform="rotate(45,69,63)"/>
-                <rect x="146" y="60" width="7" height="7" fill="#C5A059" opacity="0.6" transform="rotate(45,149,63)"/>
-                <rect x="66" y="148" width="7" height="7" fill="#C5A059" opacity="0.6" transform="rotate(45,69,151)"/>
-                <rect x="146" y="148" width="7" height="7" fill="#C5A059" opacity="0.6" transform="rotate(45,149,151)"/>
-                <text id="cfg-seal-init1" x="110" y="100" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="24" fill="#C5A059" font-weight="400" letter-spacing="2"></text>
-                <text x="110" y="126" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#E3D3B0" font-weight="300">&amp;</text>
-                <text id="cfg-seal-init2" x="110" y="152" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="24" fill="#C5A059" font-weight="400" letter-spacing="2"></text>
-            </svg>
+    <!-- WAX SEAL SCREEN -->
+    <div id="seal-screen">
+        <p class="seal-pre">You have received a wedding invitation</p>
+        <div class="seal-wrap">
+            <div class="envelope-wrapper" id="sealBtn" onclick="openInvitation()" title="Knock knock?">
+                <div class="envelope">
+                    <div class="env-back"></div>
+                    <div class="env-bottom"></div>
+                    <div class="env-left"></div>
+                    <div class="env-right"></div>
+                    <div class="env-top"></div>
+                    <div class="wax-seal">
+                        <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="110" cy="110" r="100" fill="#1B2E22" />
+                            <ellipse cx="68" cy="205" rx="12" ry="9" fill="#1B2E22" />
+                            <ellipse cx="152" cy="207" rx="10" ry="8" fill="#1B2E22" />
+                            <ellipse cx="110" cy="210" rx="8" ry="6" fill="#1B2E22" />
+                            <ellipse cx="30" cy="148" rx="8" ry="12" fill="#1B2E22" />
+                            <ellipse cx="190" cy="148" rx="8" ry="11" fill="#1B2E22" />
+                            <ellipse cx="80" cy="65" rx="30" ry="20" fill="#2D4A38" opacity="0.5" />
+                            <circle cx="110" cy="110" r="86" fill="none" stroke="#C5A059" stroke-width="1"
+                                stroke-dasharray="5 4" opacity="0.7" />
+                            <circle cx="110" cy="110" r="70" fill="none" stroke="#C5A059" stroke-width="0.8"
+                                opacity="0.5" />
+                            <path d="M110,42 C105,55 95,62 110,70 C125,62 115,55 110,42Z" fill="#C5A059"
+                                opacity="0.8" />
+                            <path d="M110,178 C105,165 95,158 110,150 C125,158 115,165 110,178Z" fill="#C5A059"
+                                opacity="0.8" />
+                            <path d="M42,110 C55,105 62,95 70,110 C62,125 55,115 42,110Z" fill="#C5A059"
+                                opacity="0.8" />
+                            <path d="M178,110 C165,105 158,95 150,110 C158,125 165,115 178,110Z" fill="#C5A059"
+                                opacity="0.8" />
+                            <rect x="66" y="60" width="7" height="7" fill="#C5A059" opacity="0.6"
+                                transform="rotate(45,69,63)" />
+                            <rect x="146" y="60" width="7" height="7" fill="#C5A059" opacity="0.6"
+                                transform="rotate(45,149,63)" />
+                            <rect x="66" y="148" width="7" height="7" fill="#C5A059" opacity="0.6"
+                                transform="rotate(45,69,151)" />
+                            <rect x="146" y="148" width="7" height="7" fill="#C5A059" opacity="0.6"
+                                transform="rotate(45,149,151)" />
+                            <text id="cfg-seal-init1" x="110" y="100" text-anchor="middle"
+                                font-family="Cormorant Garamond,serif" font-size="24" fill="#C5A059" font-weight="400"
+                                letter-spacing="2"></text>
+                            <text x="110" y="126" text-anchor="middle" font-family="Georgia,serif" font-size="22"
+                                fill="#E3D3B0" font-weight="300">&amp;</text>
+                            <text id="cfg-seal-init2" x="110" y="152" text-anchor="middle"
+                                font-family="Cormorant Garamond,serif" font-size="24" fill="#C5A059" font-weight="400"
+                                letter-spacing="2"></text>
+                        </svg>
+                    </div>
                 </div>
             </div>
+            <p class="seal-hint">â€” tap to open â€”</p>
         </div>
-        <p class="seal-hint">— tap to open —</p>
     </div>
-</div>
 
-<!-- MAIN INVITATION -->
-<div id="invitation" style="display:none; opacity:0">
+    <!-- MAIN INVITATION -->
+    <div id="invitation" style="display:none; opacity:0">
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-logo"><span id="cfg-nav-init1"></span> <span class="amp">&</span> <span id="cfg-nav-init2"></span></div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#details">Details</a></li>
-            <li><a href="#rsvp" class="btn-primary">RSVP</a></li>
-        </ul>
-    </nav>
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="nav-logo"><span id="cfg-nav-init1"></span> <span class="amp">&</span> <span
+                    id="cfg-nav-init2"></span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#details">Details</a></li>
+                <li><a href="#rsvp" class="btn-primary">RSVP</a></li>
+            </ul>
+        </nav>
 
-    <!-- Hero Section -->
-    <header id="home" class="hero">
-        <div class="hero-bg parallax"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content reveal fade-up">
-            <h3 class="hero-subtitle">You are invited to my wedding! </h3>
-            <h1 class="hero-title"><span id="cfg-hero-name1"></span> <br><span class="amp">&</span> <span id="cfg-hero-name2"></span></h1>
-            <p id="cfg-hero-date" class="hero-date"></p>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <div class="line"></div>
-        </div>
-    </header>
+        <!-- Hero Section -->
+        <header id="home" class="hero">
+            <div class="hero-bg parallax"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content reveal fade-up">
+                <h3 class="hero-subtitle">You are invited to my wedding! </h3>
+                <h1 class="hero-title"><span id="cfg-hero-name1"></span> <br><span class="amp">&</span> <span
+                        id="cfg-hero-name2"></span></h1>
+                <p id="cfg-hero-date" class="hero-date"></p>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="line"></div>
+            </div>
+        </header>
 
-    <!-- Countdown Section -->
-    <section class="countdown-section">
-        <div class="container">
-            <p class="countdown-label">Counting the days to our forever</p>
-            <div class="countdown-grid">
-                <div class="c-unit">
-                    <span class="c-num" id="cd-days">—</span>
-                    <span class="c-lbl">Days</span>
-                </div>
-                <div class="c-sep">♦</div>
-                <div class="c-unit">
-                    <span class="c-num" id="cd-hours">—</span>
-                    <span class="c-lbl">Hours</span>
-                </div>
-                <div class="c-sep">♦</div>
-                <div class="c-unit">
-                    <span class="c-num" id="cd-mins">—</span>
-                    <span class="c-lbl">Minutes</span>
-                </div>
-                <div class="c-sep">♦</div>
-                <div class="c-unit">
-                    <span class="c-num" id="cd-secs">—</span>
-                    <span class="c-lbl">Seconds</span>
+        <!-- Countdown Section -->
+        <section class="countdown-section">
+            <div class="container">
+                <p class="countdown-label">Counting the days to our forever</p>
+                <div class="countdown-grid">
+                    <div class="c-unit">
+                        <span class="c-num" id="cd-days">â€”</span>
+                        <span class="c-lbl">Days</span>
+                    </div>
+                    <div class="c-sep">â™¦</div>
+                    <div class="c-unit">
+                        <span class="c-num" id="cd-hours">â€”</span>
+                        <span class="c-lbl">Hours</span>
+                    </div>
+                    <div class="c-sep">â™¦</div>
+                    <div class="c-unit">
+                        <span class="c-num" id="cd-mins">â€”</span>
+                        <span class="c-lbl">Minutes</span>
+                    </div>
+                    <div class="c-sep">â™¦</div>
+                    <div class="c-unit">
+                        <span class="c-num" id="cd-secs">â€”</span>
+                        <span class="c-lbl">Seconds</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
-    <!-- Event Details Section -->
-    <section id="details" class="section details-bg">
-        <div class="container">
-            <div class="section-header reveal fade-up">
-                <h2 class="section-title">When & Where</h2>
-                <div class="divider"></div>
-            </div>
-            <div class="details-grid">
-                <div class="detail-card reveal fade-up" style="transition-delay: 0.2s;">
-                    <h3 class="serif">Wedding Party</h3>
-                    <p id="cfg-details-date" class="date"></p>
-                    <p id="cfg-details-time" class="time"></p>
-                    <p id="cfg-details-location" class="location"></p>
-                    <p id="cfg-details-address" class="address"></p>
-                    <a id="cfg-details-mapbtn" class="detail-map-btn" href="#" target="_blank">Get Directions ↗</a>
-                </div>
-            </div>
-            <div class="map-container reveal fade-up" style="transition-delay: 0.3s;">
-                <iframe id="cfg-map-iframe" src="" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section faq-bg">
-        <div class="container">
-            <div class="section-header reveal fade-up">
-                <h2 class="section-title">Good to Know</h2>
-                <div class="divider"></div>
-            </div>
-            <div class="faq-list">
-                <div class="faq-item reveal fade-up">
-                    <button class="faq-q" onclick="toggleFaq(this)"><span>Is parking available at the venue?</span><span class="faq-arrow">+</span></button>
-                    <div class="faq-a"><div class="faq-a-inner">Yes! Complimentary valet parking is available for all wedding guests at the main entrance. Let the attendant know you are a guest at the Laila & Kareem wedding.</div></div>
-                </div>
-                <div class="faq-item reveal fade-up">
-                    <button class="faq-q" onclick="toggleFaq(this)"><span>Are children welcome?</span><span class="faq-arrow">+</span></button>
-                    <div class="faq-a"><div class="faq-a-inner">We love your little ones! Children are warmly welcome. Please note their attendance in your RSVP so we can arrange appropriate seating and a kids' menu.</div></div>
-                </div>
-                <div class="faq-item reveal fade-up">
-                    <button class="faq-q" onclick="toggleFaq(this)"><span>Is there step-free access to the main entrance, the restroom, and the event area?</span><span class="faq-arrow">+</span></button>
-                    <div class="faq-a"><div class="faq-a-inner">Yes, we are fully step-free. There is a ramped/level entrance at the main front door that leads directly to the venue space.</div></div>
-                </div>
-                <div class="faq-item reveal fade-up">
-                    <button class="faq-q" onclick="toggleFaq(this)"><span>Can I take photos during the ceremony?</span><span class="faq-arrow">+</span></button>
-                    <div class="faq-a"><div class="faq-a-inner">We kindly ask for an unplugged ceremony — please keep phones away during the vows. Our photographers will capture every moment. Feel free to snap away during the reception!</div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- RSVP Section -->
-    <section id="rsvp" class="section rsvp-bg">
-        <div class="container">
-            <div class="glass-container reveal fade-up">
-                <div class="section-header">
-                    <h2 class="section-title">RSVP</h2>
-                    <p id="cfg-rsvp-deadline" class="subtitle" style="margin-top:0.5rem; color: var(--forest-green-light);"></p>
+        <!-- Event Details Section -->
+        <section id="details" class="section details-bg">
+            <div class="container">
+                <div class="section-header reveal fade-up">
+                    <h2 class="section-title">When & Where</h2>
                     <div class="divider"></div>
                 </div>
-                <form class="rsvp-form" id="rsvpForm" action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Guest Name(s)</label>
-                        <input type="text" id="name" name="name" placeholder="Mr. or Mrs. ..." required>
+                <div class="details-grid">
+                    <div class="detail-card reveal fade-up" style="transition-delay: 0.2s;">
+                        <h3 class="serif">Wedding Party</h3>
+                        <p id="cfg-details-date" class="date"></p>
+                        <p id="cfg-details-time" class="time"></p>
+                        <p id="cfg-details-location" class="location"></p>
+                        <p id="cfg-details-address" class="address"></p>
+                        <a id="cfg-details-mapbtn" class="detail-map-btn" href="#" target="_blank">Get Directions â†—</a>
                     </div>
-                    <div class="form-group">
-                        <label>Will you attend?</label>
-                        <div class="radio-group">
-                            <label class="radio-label"><input type="radio" name="attending" value="yes" required> Joyfully Accept</label>
-                            <label class="radio-label"><input type="radio" name="attending" value="no"> Regretfully Decline</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="adult_guests">Number of Adult Guests</label>
-                        <select id="adult_guests" name="adult_guests" class="form-select">
-                            <option value="1">Only me</option>
-                            <option value="2">2 Guests</option>
-                            <option value="3">3 Guests</option>
-                            <option value="4">4 Guests</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="child_guests">Number of Child Guests</label>
-                        <select id="child_guests" name="child_guests" class="form-select">
-                            <option value="0">0 Guests</option>
-                            <option value="1">1 Guest</option>
-                            <option value="2">2 Guests</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Leave a lovely note or wish 💕</label>
-                        <input type="text" id="message" name="message" placeholder="...">
-                    </div>
-                    <button type="submit" class="btn-submit">Confirm RSVP</button>
-                </form>
-                <div class="rsvp-success" id="rsvpSuccess" style="display:none">
-                    <p>Thank you — your RSVP has been received!</p>
-                    <span>We cannot wait to celebrate with you! </span>
+                </div>
+                <div class="map-container reveal fade-up" style="transition-delay: 0.3s;">
+                    <iframe id="cfg-map-iframe" src="" width="100%" height="450" style="border:0;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer section story-bg" style="padding: 4rem 0 2rem 0; text-align: center;">
-        <div class="container">
-            <h2 class="nav-logo" style="margin-bottom: 1rem;"><span id="cfg-footer-init1"></span><span class="amp">&</span><span id="cfg-footer-init2"></span></h2>
-            <div class="footer-divider"></div>
-            <p id="cfg-footer-date" style="color: var(--text-light); font-size: 0.9rem; margin-top:1rem;"></p>
-        </div>
-    </footer>
+        <!-- FAQ -->
+        <section class="section faq-bg">
+            <div class="container">
+                <div class="section-header reveal fade-up">
+                    <h2 class="section-title">Good to Know</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item reveal fade-up">
+                        <button class="faq-q" onclick="toggleFaq(this)"><span>Is parking available at the
+                                venue?</span><span class="faq-arrow">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Yes! Complimentary valet parking is available for all wedding
+                                guests at the main entrance. Let the attendant know you are a guest at the Laila &
+                                Kareem wedding.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal fade-up">
+                        <button class="faq-q" onclick="toggleFaq(this)"><span>Are children welcome?</span><span
+                                class="faq-arrow">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">We love your little ones! Children are warmly welcome. Please note
+                                their attendance in your RSVP so we can arrange appropriate seating and a kids' menu.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal fade-up">
+                        <button class="faq-q" onclick="toggleFaq(this)"><span>Is there step-free access to the main
+                                entrance, the restroom, and the event area?</span><span
+                                class="faq-arrow">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Yes, we are fully step-free. There is a ramped/level entrance at
+                                the main front door that leads directly to the venue space.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal fade-up">
+                        <button class="faq-q" onclick="toggleFaq(this)"><span>Can I take photos during the
+                                ceremony?</span><span class="faq-arrow">+</span></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">We kindly ask for an unplugged ceremony â€” please keep phones away
+                                during the vows. Our photographers will capture every moment. Feel free to snap away
+                                during the reception!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-</div><!-- /invitation -->
+        <!-- RSVP Section -->
+        <section id="rsvp" class="section rsvp-bg">
+            <div class="container">
+                <div class="glass-container reveal fade-up">
+                    <div class="section-header">
+                        <h2 class="section-title">RSVP</h2>
+                        <p id="cfg-rsvp-deadline" class="subtitle"
+                            style="margin-top:0.5rem; color: var(--forest-green-light);"></p>
+                        <div class="divider"></div>
+                    </div>
+                    <form class="rsvp-form" id="rsvpForm" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Guest Name(s)</label>
+                            <input type="text" id="name" name="name" placeholder="Mr. or Mrs. ..." required>
+                        </div>
+                        <div class="form-group">
+                            <label>Will you attend?</label>
+                            <div class="radio-group">
+                                <label class="radio-label"><input type="radio" name="attending" value="yes" required>
+                                    Joyfully Accept</label>
+                                <label class="radio-label"><input type="radio" name="attending" value="no"> Regretfully
+                                    Decline</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="adult_guests">Number of additional guests</label>
+                            <select id="adult_guests" name="adult_guests" class="form-select">
+                                <option value="1">0</option>
+                                <option value="2">1 guest</option>
+                                <option value="3">2 guests</option>
+                                <option value="4">3 guests</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="child_guests">Number of child guests</label>
+                            <select id="child_guests" name="child_guests" class="form-select">
+                                <option value="0">0 guests</option>
+                                <option value="1">1 guest</option>
+                                <option value="2">2 guests</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Leave a lovely note or wish ðŸ’•</label>
+                            <input type="text" id="message" name="message" placeholder="...">
+                        </div>
+                        <button type="submit" class="btn-submit">Confirm RSVP</button>
+                    </form>
+                    <div class="rsvp-success" id="rsvpSuccess" style="display:none">
+                        <p>Thank you â€” your RSVP has been received!</p>
+                        <span>We cannot wait to celebrate with you! </span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<script src="config.js"></script>
-<script src="script.js"></script>
+        <!-- Footer -->
+        <footer class="footer section story-bg" style="padding: 4rem 0 2rem 0; text-align: center;">
+            <div class="container">
+                <h2 class="nav-logo" style="margin-bottom: 1rem;"><span id="cfg-footer-init1"></span><span
+                        class="amp">&</span><span id="cfg-footer-init2"></span></h2>
+                <div class="footer-divider"></div>
+                <p id="cfg-footer-date" style="color: var(--text-light); font-size: 0.9rem; margin-top:1rem;"></p>
+            </div>
+        </footer>
+
+    </div><!-- /invitation -->
+
+    <script src="theme.js"></script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
