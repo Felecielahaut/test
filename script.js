@@ -1,5 +1,69 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    // ── POPULATE CONFIG ──────────────────────────
+    function populateConfig() {
+        if (typeof weddingConfig === 'undefined') return;
+
+        // Meta & Title
+        const titleEl = document.getElementById('cfg-title');
+        if (titleEl) titleEl.textContent = `${weddingConfig.partner1} & ${weddingConfig.partner2} | Wedding Celebration`;
+        const descEl = document.getElementById('cfg-description');
+        if (descEl) descEl.content = `Join us to celebrate the wedding of ${weddingConfig.partner1} and ${weddingConfig.partner2}.`;
+
+        // Initials (Seal)
+        const sInit1 = document.getElementById('cfg-seal-init1');
+        if (sInit1) sInit1.textContent = weddingConfig.initial1;
+        const sInit2 = document.getElementById('cfg-seal-init2');
+        if (sInit2) sInit2.textContent = weddingConfig.initial2;
+
+        // Initials (Nav)
+        const nInit1 = document.getElementById('cfg-nav-init1');
+        if (nInit1) nInit1.textContent = weddingConfig.initial1;
+        const nInit2 = document.getElementById('cfg-nav-init2');
+        if (nInit2) nInit2.textContent = weddingConfig.initial2;
+
+        // Initials (Footer)
+        const fInit1 = document.getElementById('cfg-footer-init1');
+        if (fInit1) fInit1.textContent = weddingConfig.initial1;
+        const fInit2 = document.getElementById('cfg-footer-init2');
+        if (fInit2) fInit2.textContent = weddingConfig.initial2;
+
+        // Hero
+        const hName1 = document.getElementById('cfg-hero-name1');
+        if (hName1) hName1.textContent = weddingConfig.partner1;
+        const hName2 = document.getElementById('cfg-hero-name2');
+        if (hName2) hName2.textContent = weddingConfig.partner2;
+        const hDate = document.getElementById('cfg-hero-date');
+        if (hDate) hDate.textContent = weddingConfig.eventDateDisplay;
+
+        // Details
+        const dDate = document.getElementById('cfg-details-date');
+        if (dDate) dDate.textContent = weddingConfig.eventDateShort;
+        const dTime = document.getElementById('cfg-details-time');
+        if (dTime) dTime.textContent = weddingConfig.eventTime;
+        const dLoc = document.getElementById('cfg-details-location');
+        if (dLoc) dLoc.textContent = weddingConfig.venueName;
+        const dAddr = document.getElementById('cfg-details-address');
+        if (dAddr) dAddr.textContent = weddingConfig.venueAddress;
+        
+        const dMapBtn = document.getElementById('cfg-details-mapbtn');
+        if (dMapBtn) dMapBtn.href = weddingConfig.mapLink;
+        const dMapIframe = document.getElementById('cfg-map-iframe');
+        if (dMapIframe) {
+            // Dynamically generate the map embed URL using the venue name and address
+            const mapQuery = encodeURIComponent(`${weddingConfig.venueName}, ${weddingConfig.venueAddress}`);
+            dMapIframe.setAttribute('src', `https://maps.google.com/maps?q=${mapQuery}&t=&z=15&ie=UTF8&iwloc=&output=embed`);
+        }
+
+        // RSVP & Footer
+        const rsvpDeadline = document.getElementById('cfg-rsvp-deadline');
+        if (rsvpDeadline) rsvpDeadline.textContent = `Please respond by ${weddingConfig.rsvpDeadline}`;
+        const fDate = document.getElementById('cfg-footer-date');
+        if (fDate) fDate.textContent = `Made with love for ${weddingConfig.eventDateDisplay}`;
+    }
+
+    populateConfig();
+
     // ── WAX SEAL OPEN ────────────────────────────
     window.openInvitation = function() {
         const sealScreen  = document.getElementById('seal-screen');
@@ -27,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ── COUNTDOWN ────────────────────────────────
     function startCountdown() {
         function tick() {
-            const target = new Date('2026-05-02T18:00:00').getTime();
+            const target = new Date(weddingConfig.countdownTarget).getTime();
             const now    = Date.now();
             const diff   = Math.max(0, target - now);
 
@@ -136,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // ── RSVP FORM — Formspree ────────────────────
+    // ── RSVP FORM ────────────────────────────────
     const rsvpForm = document.getElementById('rsvpForm');
     if (rsvpForm) {
         rsvpForm.addEventListener('submit', (e) => {
@@ -148,25 +212,12 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.innerText = 'Sending...';
             btn.disabled  = true;
 
-            fetch(rsvpForm.action, {
-                method:  'POST',
-                body:    new FormData(rsvpForm),
-                headers: { 'Accept': 'application/json' }
-            })
-            .then(response => {
-                if (response.ok) {
-                    rsvpForm.style.display = 'none';
-                    document.getElementById('rsvpSuccess').style.display = 'block';
-                    launchConfetti();
-                } else {
-                    throw new Error('Server error');
-                }
-            })
-            .catch(() => {
-                btn.innerText = originalText;
-                btn.disabled  = false;
-                alert('Oops... something went wrong. Please try again.');
-            });
+            // Mock submission UI effect
+            setTimeout(() => {
+                rsvpForm.style.display = 'none';
+                document.getElementById('rsvpSuccess').style.display = 'block';
+                launchConfetti();
+            }, 800);
         });
     }
 

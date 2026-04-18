@@ -649,18 +649,94 @@ h1, h2, h3, .serif {
     gap: 2rem;
 }
 
-.wax-seal {
-    width: 200px;
-    height: 200px;
+.envelope-wrapper {
+    position: relative;
+    width: 380px;
+    height: 240px;
     cursor: pointer;
     animation: fadeUpIn 1.2s 0.2s ease both, sealFloat 4s 1.5s ease-in-out infinite;
-    filter: drop-shadow(0 12px 32px rgba(27, 46, 34, 0.35));
     transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 15px 35px rgba(27, 46, 34, 0.2));
 }
 
-.wax-seal:hover {
-    transform: scale(1.04);
-    filter: drop-shadow(0 18px 40px rgba(27, 46, 34, 0.45));
+.envelope-wrapper:hover {
+    transform: scale(1.03) translateY(-4px);
+    filter: drop-shadow(0 20px 45px rgba(27, 46, 34, 0.3));
+}
+
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.env-back {
+    position: absolute;
+    inset: 0;
+    background: #F4F0EA;
+    border-radius: 4px;
+    box-shadow: inset 0 0 30px rgba(197, 160, 89, 0.08);
+}
+
+.env-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 0;
+    border-left: 190px solid transparent;
+    border-right: 190px solid transparent;
+    border-bottom: 120px solid #EAE3D9;
+    border-radius: 0 0 4px 4px;
+    z-index: 3;
+}
+
+.env-left {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 0;
+    border-top: 120px solid transparent;
+    border-bottom: 120px solid transparent;
+    border-left: 190px solid #E6DECA;
+    border-radius: 4px 0 0 4px;
+    z-index: 2;
+}
+
+.env-right {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 0;
+    border-top: 120px solid transparent;
+    border-bottom: 120px solid transparent;
+    border-right: 190px solid #E6DECA;
+    border-radius: 0 4px 4px 0;
+    z-index: 2;
+}
+
+.env-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 0;
+    border-left: 190px solid transparent;
+    border-right: 190px solid transparent;
+    border-top: 135px solid #F0E9DC;
+    border-radius: 4px 4px 0 0;
+    z-index: 4;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.06));
+}
+
+.wax-seal {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    left: 50%;
+    top: 135px;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    filter: drop-shadow(0 4px 10px rgba(27, 46, 34, 0.25));
+    transition: transform 0.3s ease;
+}
+
+.envelope-wrapper:hover .wax-seal {
+    transform: translate(-50%, -50%) scale(1.05);
 }
 
 .seal-hint {
