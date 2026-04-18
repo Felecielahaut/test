@@ -12,5 +12,8 @@ const weddingConfig = {
     // Location Details
     venueName: "Nile-Ritz Carlton",
     venueAddress: "Cairo",
-    mapLink: "https://maps.app.goo.gl/HSw5QR8ynjA4DxEEA"
+    mapLink: "https://maps.app.goo.gl/HSw5QR8ynjA4DxEEA",
+
+    // RSVP Google Sheet Integration (leave empty if not ready)
+    googleSheetScriptUrl: ""
 };

@@ -221,12 +221,31 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.innerText = 'Sending...';
             btn.disabled  = true;
 
-            // Mock submission UI effect
-            setTimeout(() => {
-                rsvpForm.style.display = 'none';
-                document.getElementById('rsvpSuccess').style.display = 'block';
-                launchConfetti();
-            }, 800);
+            if (weddingConfig.googleSheetScriptUrl) {
+                const formData = new FormData(rsvpForm);
+                fetch(weddingConfig.googleSheetScriptUrl, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors' // Allows posting across domains without CORS preflight block
+                })
+                .then(() => {
+                    rsvpForm.style.display = 'none';
+                    document.getElementById('rsvpSuccess').style.display = 'block';
+                    launchConfetti();
+                })
+                .catch(() => {
+                    btn.innerText = originalText;
+                    btn.disabled  = false;
+                    alert('Oops... something went wrong. Please try again.');
+                });
+            } else {
+                // Mock submission UI effect if no script URL is provided
+                setTimeout(() => {
+                    rsvpForm.style.display = 'none';
+                    document.getElementById('rsvpSuccess').style.display = 'block';
+                    launchConfetti();
+                }, 800);
+            }
         });
     }
 
