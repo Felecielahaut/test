@@ -5,11 +5,8 @@ const weddingConfig = {
     initial1: "L",
     initial2: "K",
     
-    // Dates
-    eventDateDisplay: "May 2nd, 2026",
-    eventDateShort: "May 2, 2026",
-    eventTime: "6:00 PM",
-    countdownTarget: "2026-05-02T18:00:00",
+    // Event Date & Time (ISO format: YYYY-MM-DDTHH:mm:ss)
+    eventDateTime: "2026-05-02T18:00:00",
     rsvpDeadline: "April 1st, 2026",
     
     // Location Details

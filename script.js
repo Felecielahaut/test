@@ -4,6 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
     function populateConfig() {
         if (typeof weddingConfig === 'undefined') return;
 
+        // Date formatting
+        const eDate = new Date(weddingConfig.eventDateTime);
+        const day = eDate.getDate();
+        const suffix = (day % 10 === 1 && day !== 11) ? 'st' : (day % 10 === 2 && day !== 12) ? 'nd' : (day % 10 === 3 && day !== 13) ? 'rd' : 'th';
+        const month = eDate.toLocaleString('en-US', { month: 'long' });
+        const displayDate = `${month} ${day}${suffix}, ${eDate.getFullYear()}`;
+        const shortDate = eDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        const timeStr = eDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+
         // Meta & Title
         const titleEl = document.getElementById('cfg-title');
         if (titleEl) titleEl.textContent = `${weddingConfig.partner1} & ${weddingConfig.partner2} | Wedding Celebration`;
@@ -34,13 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const hName2 = document.getElementById('cfg-hero-name2');
         if (hName2) hName2.textContent = weddingConfig.partner2;
         const hDate = document.getElementById('cfg-hero-date');
-        if (hDate) hDate.textContent = weddingConfig.eventDateDisplay;
+        if (hDate) hDate.textContent = displayDate;
 
         // Details
         const dDate = document.getElementById('cfg-details-date');
-        if (dDate) dDate.textContent = weddingConfig.eventDateShort;
+        if (dDate) dDate.textContent = shortDate;
         const dTime = document.getElementById('cfg-details-time');
-        if (dTime) dTime.textContent = weddingConfig.eventTime;
+        if (dTime) dTime.textContent = timeStr;
         const dLoc = document.getElementById('cfg-details-location');
         if (dLoc) dLoc.textContent = weddingConfig.venueName;
         const dAddr = document.getElementById('cfg-details-address');
@@ -59,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const rsvpDeadline = document.getElementById('cfg-rsvp-deadline');
         if (rsvpDeadline) rsvpDeadline.textContent = `Please respond by ${weddingConfig.rsvpDeadline}`;
         const fDate = document.getElementById('cfg-footer-date');
-        if (fDate) fDate.textContent = `Made with love for ${weddingConfig.eventDateDisplay}`;
+        if (fDate) fDate.textContent = `Made with love for ${displayDate}`;
     }
 
     populateConfig();
@@ -91,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ── COUNTDOWN ────────────────────────────────
     function startCountdown() {
         function tick() {
-            const target = new Date(weddingConfig.countdownTarget).getTime();
+            const target = new Date(weddingConfig.eventDateTime).getTime();
             const now    = Date.now();
             const diff   = Math.max(0, target - now);
 
