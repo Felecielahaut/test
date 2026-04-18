@@ -1,7 +1,4 @@
 const weddingConfig = {
-    // Theme Selection (options: 'wedding', 'babyShower', 'generalEvent')
-    activeTheme: "wedding",
-
     // Names and Initials
     partner1: "Katherine",
     partner2: "John",
@@ -22,5 +19,5 @@ const weddingConfig = {
 
     // Social Links (Footer)
     tiktokLink: "https://www.tiktok.com/@blushmoments6",
-    instagramLink: "https://www.instagram.com/"
+    instagramLink: "https://www.instagram.com/blushmoments.inc/"
 };

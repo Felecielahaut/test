@@ -81,45 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function applyTheme() {
-        const themeName = window.weddingConfig && window.weddingConfig.activeTheme ? window.weddingConfig.activeTheme : 'wedding';
-        const theme = window.themes && window.themes[themeName];
-        if (!theme) return;
-        
-        const root = document.documentElement;
-        
-        // Apply Colors
-        if (theme.colors) {
-            for (const [key, val] of Object.entries(theme.colors)) {
-                root.style.setProperty('--' + key, val);
-            }
-        }
-        
-        // Apply Fonts
-        if (theme.fonts) {
-            root.style.setProperty('--font-body', theme.fonts.body);
-            root.style.setProperty('--font-heading', theme.fonts.heading);
-            root.style.setProperty('--font-accent', theme.fonts.accent);
-            
-            const fontNames = [theme.fonts.body, theme.fonts.heading, theme.fonts.accent]
-                .map(f => f.split(',')[0].replace(/['"]/g, '').trim())
-                .filter(Boolean);
-            
-            const uniqueFonts = [...new Set(fontNames)];
-            const gFontsUrl = 'https://fonts.googleapis.com/css2?' + uniqueFonts.map(f => 'family=' + f.replace(/ /g, '+') + ':ital,wght@0,300;0,400;0,500;0,600;1,400;1,500').join('&') + '&display=swap';
-            
-            let link = document.getElementById('theme-fonts');
-            if (!link) {
-                link = document.createElement('link');
-                link.id = 'theme-fonts';
-                link.rel = 'stylesheet';
-                document.head.appendChild(link);
-            }
-            link.href = gFontsUrl;
-        }
-    }
-
-    applyTheme();
     populateConfig();
 
     // ── WAX SEAL OPEN ────────────────────────────
