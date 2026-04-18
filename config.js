@@ -15,5 +15,5 @@ const weddingConfig = {
     mapLink: "https://maps.app.goo.gl/HSw5QR8ynjA4DxEEA",
 
     // RSVP Google Sheet Integration (leave empty if not ready)
-    googleSheetScriptUrl: "https://script.google.com/macros/s/AKfycbxv6SmmaFqFwjCaW9makgaUro8S0OETHhcOneu8Pw0E2s_bicLmOzsbRyUUDJUK6JC1/exec"
+    googleSheetScriptUrl: "https://script.google.com/macros/s/AKfycbw_nlKjNNKc5Dp9phpKixsYjyhaNrsPUUzoQyand0DpSL3A3tvfdaEi6vCjeOVK2wfz/exec"
 };
