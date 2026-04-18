@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bride's RSVP Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body { background: var(--cream); color: var(--text-dark); min-height: 100vh; padding: 2rem; }
+        .dash-container { max-width: 1000px; margin: 0 auto; }
+        .dash-header { text-align: center; margin-bottom: 3rem; }
+        .dash-title { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--forest-green); margin-bottom: 0.5rem; }
+        
+        /* Login Screen */
+        #login-screen { text-align: center; max-width: 400px; margin: 5rem auto; padding: 3rem; background: #fff; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .login-input { width: 100%; padding: 12px; margin: 1rem 0; border: 1px solid var(--champagne-gold); border-radius: 4px; font-family: 'Outfit', sans-serif; }
+        
+        /* Dashboard Stats */
+        #dashboard-content { display: none; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .stat-card { background: #fff; padding: 2rem; border-radius: 8px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid var(--champagne-light); }
+        .stat-num { font-size: 3rem; font-family: 'Cormorant Garamond', serif; color: var(--forest-green); line-height: 1; margin-bottom: 0.5rem; }
+        .stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #888; }
+        
+        /* Table */
+        .table-container { background: #fff; border-radius: 8px; overflow: auto; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid var(--champagne-light); }
+        table { width: 100%; border-collapse: collapse; text-align: left; min-width: 600px; }
+        th { background: var(--forest-green); color: var(--cream); padding: 1.2rem 1.5rem; font-family: 'Outfit', sans-serif; font-weight: 400; letter-spacing: 1px; font-size: 0.9rem; text-transform: uppercase; }
+        td { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--champagne-light); font-family: 'Outfit', sans-serif; font-size: 1rem; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: var(--cream); }
+        .badge { padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 500; }
+        .badge.yes { background: #E6F4EA; color: #1E8E3E; }
+        .badge.no { background: #FCE8E6; color: #D93025; }
+        
+        .loader { border: 3px solid #f3f3f3; border-top: 3px solid var(--forest-green); border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; margin: 0 auto; display: none; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+<div class="dash-container">
+    <div class="dash-header">
+        <h1 class="dash-title">RSVP Dashboard</h1>
+        <p>Real-time guest tracking</p>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="login-screen">
+        <h3>Enter Dashboard Password</h3>
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">This keeps your guest list private.</p>
+        <input type="password" id="passInput" class="login-input" placeholder="Password..." onkeypress="if(event.key === 'Enter') login()">
+        <button class="btn-submit" onclick="login()" style="width: 100%; padding: 12px; margin-top: 10px;">
+            <span id="loginText">Access Dashboard</span>
+            <div id="loginLoader" class="loader"></div>
+        </button>
+        <p id="errorMsg" style="color: red; margin-top: 1rem; font-size: 0.9rem; display: none;">Incorrect password.</p>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div id="dashboard-content">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-num" id="stat-total">0</div>
+                <div class="stat-label">Total Responses</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stat-attending">0</div>
+                <div class="stat-label">Attending</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stat-adults">0</div>
+                <div class="stat-label">Total Adults</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stat-kids">0</div>
+                <div class="stat-label">Total Children</div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Adults</th>
+                        <th>Kids</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody id="guestTableBody">
+                    <!-- Rows injected here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="config.js"></script>
+<script>
+    function login() {
+        const pass = document.getElementById('passInput').value;
+        if(!pass) return;
+
+        const btnText = document.getElementById('loginText');
+        const loader = document.getElementById('loginLoader');
+        const errorMsg = document.getElementById('errorMsg');
+
+        btnText.style.display = 'none';
+        loader.style.display = 'block';
+        errorMsg.style.display = 'none';
+
+        // Fetch from Google script
+        const url = weddingConfig.googleSheetScriptUrl + "?pass=" + encodeURIComponent(pass);
+        
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) {
+                    throw new Error("Unauthorized");
+                }
+                
+                // Hide login, show dashboard
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('dashboard-content').style.display = 'block';
+                
+                renderDashboard(data.data);
+            })
+            .catch(err => {
+                btnText.style.display = 'inline';
+                loader.style.display = 'none';
+                errorMsg.style.display = 'block';
+            });
+    }
+
+    function renderDashboard(rows) {
+        if (!rows || rows.length <= 1) return; // Only header row exists
+
+        let totalResponses = 0;
+        let attending = 0;
+        let totalAdults = 0;
+        let totalKids = 0;
+
+        const tbody = document.getElementById('guestTableBody');
+        tbody.innerHTML = '';
+
+        // Skip the first row (headers)
+        let startIndex = 1; 
+
+        for (let i = startIndex; i < rows.length; i++) {
+            const row = rows[i];
+            // Format: [Timestamp, Name, Attending, Adults, Kids, Message]
+            const dateStr = row[0] ? new Date(row[0]).toLocaleDateString() : '';
+            const name = row[1] || '';
+            const isAttending = (row[2] || "").toLowerCase() === 'yes';
+            const adults = parseInt(row[3]) || 0;
+            const kids = parseInt(row[4]) || 0;
+            const msg = row[5] || "";
+
+            totalResponses++;
+            if (isAttending) {
+                attending++;
+                totalAdults += adults;
+                totalKids += kids;
+            }
+
+            const tr = document.createElement('tr');
+            
+            let statusBadge = isAttending 
+                ? '<span class="badge yes">Accept</span>' 
+                : '<span class="badge no">Decline</span>';
+
+            tr.innerHTML = `
+                <td style="color: #888; font-size: 0.9rem;">${dateStr}</td>
+                <td style="font-weight: 500;">${name}</td>
+                <td>${statusBadge}</td>
+                <td>${isAttending ? adults : '-'}</td>
+                <td>${isAttending ? kids : '-'}</td>
+                <td style="color: #666; font-size: 0.9rem; max-width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${msg}">${msg}</td>
+            `;
+            tbody.appendChild(tr);
+        }
+
+        document.getElementById('stat-total').innerText = totalResponses;
+        document.getElementById('stat-attending').innerText = attending;
+        document.getElementById('stat-adults').innerText = totalAdults;
+        document.getElementById('stat-kids').innerText = totalKids;
+    }
+</script>
+</body>
+</html>
